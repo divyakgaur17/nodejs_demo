@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'node app.js'
+                sh 'npm test'
             }
         }
     }
