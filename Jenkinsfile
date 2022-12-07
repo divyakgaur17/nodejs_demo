@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'nvm run app.js'
+                sh 'sudo npm install'
             }
         }
     }
