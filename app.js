@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-//const port = 5000;
+const port = process.env.port || 5000;
 
 app.get("/", (req, res) => {
   res.json({
@@ -14,7 +14,7 @@ app.get("/aws", (req, res) => {
     msg: "You took longer than we expected",
   });
 });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log("listening on port " + PORT);
+
+app.listen(port, () => {
+  console.log("listening on port " + port);
 });
