@@ -1,11 +1,12 @@
 const express = require("express");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = normalizePort(process.env.PORT || 5000);
+app.set('port', port);
 
 app.get("/", (req, res) => {
   res.json({
-    msg: "Welcome to the world of AWS! Now Finally After 2.5 days we're running node js applicaiton on docker through jenkins. 🏆 && New Update 4",
+    msg: "Welcome to Chirpn IT Solutions! Finally After 1.5 days we're running node js applicaiton on Heroku Throught github 🏆",
   });
 });
 
