@@ -1,8 +1,7 @@
 const express = require("express");
 
 const app = express();
-const port = normalizePort(process.env.PORT || 5000);
-app.set('port', port);
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.json({
@@ -16,6 +15,6 @@ app.get("/aws", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log("listening on port " + port);
+app.listen(PORT, () => {
+  console.log("listening on port " + PORT);
 });
