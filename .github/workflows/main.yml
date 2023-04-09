@@ -29,4 +29,4 @@ jobs:
           host: 54.166.58.38
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          script: 'cd /var/www/myapp && npm install && node app.js'
+          script: 'cd /home/ubuntu/myapp && npm install && node app.js'
