@@ -21,7 +21,7 @@ jobs:
           host: 54.166.58.38
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          source: './'
+          source: '*'
           target: '/home/ubuntu/myapp'
       - name: Connect to EC2 instance
         uses: appleboy/ssh-action@master
