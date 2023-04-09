@@ -15,17 +15,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Copy files to EC2 instance
+      - name: SSH Deploy
         uses: appleboy/scp-action@master
         with:
           host: 54.166.58.38
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          target: '/home/ubuntu/myapp'
-      - name: Connect to EC2 instance
-        uses: appleboy/ssh-action@master
-        with:
-          host: 54.166.58.38
-          username: ubuntu
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
-          script: 'cd /home/ubuntu/myapp && npm install && node app.js'
+          script: |
+            cd /home/ubuntu/myapp
+            git pull origin main
+            npm install
+            pm2 restart api
