@@ -22,11 +22,11 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           source: './'
-          target: '/var/www/html'
+          target: '/home/ubuntu/myapp'
       - name: Connect to EC2 instance
         uses: appleboy/ssh-action@master
         with:
           host: 54.166.58.38
           username: ubuntu
           key: ${{ secrets.EC2_PRIVATE_KEY }}
-          script: 'cd /var/www/html && npm install && pm2 restart html'
+          script: 'cd /var/www/myapp && npm install && node app.js'
