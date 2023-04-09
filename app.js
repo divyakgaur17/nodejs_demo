@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = process.env.PORT || 2107;
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.json({
@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {
+app.get("/heroku", (req, res) => {
   res.json({
     msg: "Welcome to Chirpn IT Solutions! Finally After 1.5 days we're running node js applicaiton on Heroku Throught github 🏆",
   });
