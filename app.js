@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
   res.json({
-    msg: "Welcome to DevOps! Created Automated CICD Using github actions 🏆",
+    msg: "Welcome to DevOps!",
   });
 });
 
