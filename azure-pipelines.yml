@@ -27,18 +27,18 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
-- task: CopyFilesOverSSH@0
-  inputs:
-    sshEndpoint: 'aws ec2 instance ssh'
-    contents: '**'
-    targetFolder: '/home/ec2-user'
-    readyTimeout: '20000'
+    - task: CopyFilesOverSSH@0
+      inputs:
+        sshEndpoint: 'aws ec2 instance ssh'
+        contents: '**'
+        targetFolder: '/home/ec2-user'
+        readyTimeout: '20000'
 
-- task: SSH@0
-  inputs:
-    sshEndpoint: 'aws ec2 instance ssh'
-    runOptions: 'commands'
-    commands: |
-      cd /home/ec2-user
-      mkdir docker-folder
-    readyTimeout: '20000'
+    - task: SSH@0
+      inputs:
+        sshEndpoint: 'aws ec2 instance ssh'
+        runOptions: 'commands'
+        commands: |
+          cd /home/ec2-user
+          mkdir docker-folder
+        readyTimeout: '20000'
