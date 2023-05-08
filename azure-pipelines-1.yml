@@ -1,0 +1,26 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+- task: Docker@2
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'aws ec2 instance ssh'
+    contents: '**'
+    targetFolder: '/home/ec2-user'
+    readyTimeout: '20000'
+
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'aws ec2 instance ssh'
+    runOptions: 'commands'
+    commands: |
+      cd /home/ec2-user
+      mkdir docker-file
+    readyTimeout: '20000'
